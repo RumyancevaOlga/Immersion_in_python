@@ -2,5 +2,5 @@
 
 for i in range(2, 11):
     for j in range(2, 10):
-        print(j, 'X', i, '=', j * i, end='     ')
+        print(j, 'X', i, '=', j * i, end='\t')
     print()
