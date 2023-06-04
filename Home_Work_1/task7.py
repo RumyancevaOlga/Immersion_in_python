@@ -7,24 +7,25 @@
 # Откажитесь от магических чисел
 # В коде должны быть один input и один print
 
-
-
+number = 0
 res = 0
 check = True
+LOWER_LIMIT = 1
+UPPER_LIMIT = 999
 
 while check:
     number = int(input('Введите число от 1 до 999: '))
-    if number > 0 and number < 10:
-        res = number ** 2
-        print('Вы ввели цифру.', number, 'в квадрате =', res)
-        check = False
-    elif number > 9 and number < 100:
-        res = (number % 10) * (number // 10)
-        print('Вы ввели двузначное число.', number // 10, '*', number % 10, '=', res)
-        check = False
-    elif number > 99 and number < 1000:
-        res = number % 10 * 100 + number // 10 % 10 * 10 + number // 100
-        print('Вы ввели трехзначное число.', number, 'наобарот =', res)
+    if LOWER_LIMIT < number <= UPPER_LIMIT:
         check = False
     else:
         print('Ошибка!', number, 'не входит в диапазон от 1 до 999.')
+
+if number // 10 == 0:
+    res = number ** 2
+    print('Вы ввели цифру.', number, 'в квадрате =', res)
+elif number // 100 == 0:
+    res = (number % 10) * (number // 10)
+    print('Вы ввели двузначное число.', number // 10, '*', number % 10, '=', res)
+elif number // 1000 == 0:
+    res = number % 10 * 100 + number // 10 % 10 * 10 + number // 100
+    print('Вы ввели трехзначное число.', number, 'наобарот =', res)

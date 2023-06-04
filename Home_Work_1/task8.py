@@ -9,15 +9,8 @@
 # *********
 
 lines = int(input('Сколько рядов у ёлки? '))
-# вычисляем количество отступов до первой звезды
-indent = lines - 1
-stars = 1
 
-while lines > 0:
-    if indent > 0:
-        print(' ' * (indent - 1), '*' * stars)
-    else:
-        print('*' * stars)
-    indent -= 1
-    stars += 2
-    lines -= 1
+for i in range(lines - 1):
+    print(' ' * (lines - 2 - i), '*' * ((i * 2) + 1))
+else:
+    print('*' * ((lines * 2) - 1))

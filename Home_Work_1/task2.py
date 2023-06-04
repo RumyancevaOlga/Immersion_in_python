@@ -7,14 +7,12 @@ UPPER_LIMIT = 100000
 
 while True:
     number = int(input('Введите число: '))
-    if number > LOWER_LIMIT and number <= UPPER_LIMIT:
-        count = 0
-        for i in range (2, number):
+    if LOWER_LIMIT < number <= UPPER_LIMIT:
+        for i in range(2, int(number ** 0.5) + 1):
             if number % i == 0:
-                count = i
                 print('Вы ввели составное число')
                 break
-        if count == 0:
+        else:
             print('Вы ввели простое число')
         break
     else:

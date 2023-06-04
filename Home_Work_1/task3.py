@@ -8,12 +8,12 @@ from random import randint
 
 LOWER_LIMIT = 0
 UPPER_LIMIT = 100
+ATTEMPTS = 10
 
 num = randint(LOWER_LIMIT, UPPER_LIMIT)
 
-user_num = int(input('Угадай число, которое я загадала '))
-
-for i in range (0, 10):
+for i in range (ATTEMPTS):
+    user_num = int(input('Угадай число, которое я загадала '))
     if user_num == num:
         print('Молодец! Угадал!')
         break
@@ -21,7 +21,5 @@ for i in range (0, 10):
         print('Неверно, бери меньше')
     elif user_num < num:
         print('Неверно, бери больше')
-    user_num = int(input('Попробуй еще раз '))
-
-if user_num != num:
+else:
     print('Попытки закончились! Ты проиграл!')
