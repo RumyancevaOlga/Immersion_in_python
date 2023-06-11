@@ -23,29 +23,29 @@ def multi(num_1: int, num_2: int) -> str:
 def sum(num_1: str, num_2: str) -> str:
     res = 0
     fra_res = ''
-    fra_1 = num_1.split('/')
-    fra_2 = num_2.split('/')
-    if fra_1[1] == fra_2[1]:
-        res = int(fra_1[0]) + int(fra_2[0])
-        fra_res = multi(int(res), int(fra_1[1]))
-    elif int(fra_1[1]) % int(fra_2[1]) == 0:
-        res = int(fra_1[0]) + int(fra_2[0]) * (int(fra_1[1]) // int(fra_2[1]))
-        fra_res = multi(int(res), int(fra_1[1]))
-    elif int(fra_2[1]) % int(fra_1[1]) == 0:
-        res = int(fra_2[0]) + int(fra_1[0]) * (int(fra_2[1]) // int(fra_1[1]))
-        fra_res = multi(int(res), int(fra_2[1]))
+    fra_1_1, fra_1_2 = map(int, num_1.split('/'))
+    fra_2_1, fra_2_2 = map(int, num_2.split('/'))
+    if fra_1_2 == fra_2_2:
+        res = fra_1_1 + fra_2_1
+        fra_res = multi(res, fra_1_2)
+    elif fra_1_2 % fra_2_2 == 0:
+        res = fra_1_1 + fra_2_1 * (fra_1_2 // fra_2_2)
+        fra_res = multi(int(res), fra_1_2)
+    elif fra_2_2 % fra_1_2 == 0:
+        res = fra_2_1 + fra_1_1 * (fra_2_2 // fra_1_2)
+        fra_res = multi(int(res), fra_2_2)
     else:
-        res = (int(fra_1[0]) * int(fra_2[1])) + (int(fra_2[0]) * int(fra_1[1]))
-        fra_res = multi(int(res), int(fra_2[1]) * int(fra_1[1]))
+        res = (fra_1_1 * fra_2_2) + (fra_2_1 * fra_1_2)
+        fra_res = multi(int(res), fra_2_2 * fra_1_2)
     return fra_res
 
 
 def product(num_1: str, num_2: str) -> str:
     fra_res = ''
-    fra_1 = num_1.split('/')
-    fra_2 = num_2.split('/')
-    fra_res = multi(int(fra_1[0]) * int(fra_2[0]), int(fra_1[1]) * int(fra_2[1]))
-    return  fra_res
+    fra_1_1, fra_1_2 = map(int, num_1.split('/'))
+    fra_2_1, fra_2_2 = map(int, num_2.split('/'))
+    fra_res = multi(fra_1_1 * fra_2_1, fra_1_2 * fra_2_2)
+    return fra_res
 
 num_1 = fractions.Fraction(frac_1)
 num_2 = fractions.Fraction(frac_2)
