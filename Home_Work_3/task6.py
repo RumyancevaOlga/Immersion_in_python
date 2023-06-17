@@ -4,27 +4,22 @@
 # ✔ Текст выравнивается по правому краю так, чтобы у самого длинного
 # слова был один пробел между ним и номером строки.
 
+import  string
+
 text = input('Введите текст: ')
 
 # создаю список слов и чищу его от символов, символы можно еще добавить
 my_list = text.split()
 
 for i in range(len(my_list)):
-    my_list[i] = my_list[i].strip('.,!?":-')
+    my_list[i] = my_list[i].strip(string.punctuation)
 
 # сортирую список
 my_list.sort()
 
 # для того, чтобы красиво выровнять текст, нужно найти максимальную лину строки списка, ищу через список
-len_list = []
 
-# for i in range(len(my_list)):
-#     len_list.append(len(my_list[i]))
-
-for i, item in enumerate(my_list):
-    len_list.append(len(item))
-
-max_len = max(len_list)
+max_len = len(max(my_list, key=len))
 
 # в задании оговорено, что между самым длинным словом, должен быть один пробел
 # проблема в том, что слов может быть больше 9, тогда выравнивание поползет

@@ -14,7 +14,7 @@ new_list = []
 # new_list.clear()
 
 for i, item in enumerate(my_list):
-    if item % 2 > 0:
+    if item % 2:
         new_list.append(my_list.index(item, i) + 1)
 
 print(new_list)

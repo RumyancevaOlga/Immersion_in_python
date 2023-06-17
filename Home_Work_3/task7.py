@@ -17,13 +17,9 @@ text = re.sub('\W+', '', text)
 my_dict = {key: text.count(key) for (value, key) in enumerate(text)}
 
 new_dict = {}
-for i in range(len(text)):
-    count = 0
-    value = text[i]
-    for j, item in enumerate(text):
-        if value == item:
-            count += 1
-    new_dict[text[i]] = count
+
+for char in text:
+    new_dict[char] = new_dict.get(char, 0) + 1
 
 print(my_dict)
 print(new_dict)
