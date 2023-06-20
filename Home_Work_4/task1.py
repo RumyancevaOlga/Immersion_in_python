@@ -11,8 +11,7 @@ def print_matrix(matrix_a):
 
 
 def reverse_matrix(matrix_b):
-    new_matrix = list(zip(*matrix_b[::]))
-    return new_matrix
+    return [*map(list, zip(*matrix_b))]
 
 
 matrix = numpy.array([[2, 3, 4, 5], [6, 7, 8, 9], [1, 2, 3, 4]])

@@ -57,6 +57,7 @@ def is_reach(balance: int) -> int:
         print(balance, '-', balance * WEALTH_TAX)
         balance -= balance * WEALTH_TAX
         contorol('Снятие налога на богатство', str(balance * WEALTH_TAX))
+        print('Текущий баланс равен ', balance)
     return balance
 
 

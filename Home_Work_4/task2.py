@@ -4,14 +4,14 @@
 import typing
 
 
-def func(*, arg):
-    my_dict = {str(value): name for name, value in globals().items() if value == arg and not isinstance(value, typing.Hashable)}
-    if len(my_dict) == 0:
-        my_dict[arg] = str([name for name, value in globals().items() if value == arg][0])
+def func(**kwargs):
+    my_dict = {}
+    for name, value in kwargs.items():
+        if not isinstance(value, typing.Hashable):
+            my_dict[str(value)] = name
+        else:
+            my_dict[value] = name
     return my_dict
 
 
-x = 5
-print(func(arg=x))
-y = [1, 2, 3]
-print(func(arg=y))
+print(func(x=5, y=[1, 2, 3]))
