@@ -35,7 +35,7 @@ def is_valid_date(date: str):
 
 if __name__ == '__main__':
     print(argv)
-    _, *params = argv
-    print(is_valid_date(*map(str, params)))
+    *_, params = argv
+    print(is_valid_date(params))
 
 # python task.py '25.06.2023'
