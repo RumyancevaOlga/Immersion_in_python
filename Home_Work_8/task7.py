@@ -2,6 +2,9 @@
 # использования csv.DictReader.
 # Распечатайте его как pickle строку.
 
+__all__ = ['my_func']
+
+
 import csv
 import pickle
 
