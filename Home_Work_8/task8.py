@@ -33,13 +33,12 @@ def my_func(dir_name, file_json, file_csv, file_pickle):
                 directories.append({'name': elem, 'size': total_size, 'type': 'directory', 'directory': str(dir_path)})
     all_data = files + directories
     with (open(file_json, 'w', encoding='utf-8') as f_json,
-          open(file_csv, 'w', encoding='utf-8') as f_csv,
+          open(file_csv, 'w', encoding='utf-8', newline='') as f_csv,
           open(file_pickle, 'wb') as f_pickle
           ):
         json.dump(all_data, f_json, ensure_ascii=False, indent=2)
 
-        csv_write = csv.DictWriter(f_csv, fieldnames=['name', 'size', 'type', 'directory'], dialect='excel-tab',
-                                   quoting=csv.QUOTE_ALL)
+        csv_write = csv.DictWriter(f_csv, fieldnames=['name', 'size', 'type', 'directory'])
         csv_write.writeheader()
         csv_write.writerows(all_data)
 
