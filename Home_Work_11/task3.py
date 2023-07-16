@@ -34,8 +34,8 @@ class Rectangle:
 
     def __sub__(self, other):
         """Method of subtracting two rectangles."""
-        p = self.get_perimeter() - other.get_perimeter()
-        return Rectangle(abs(p // 2 / 2))
+        p = abs(self.get_perimeter() - other.get_perimeter())
+        return Rectangle(p // 2 / 2)
 
     def __eq__(self, other):
         return self.get_area() == other.get_area()

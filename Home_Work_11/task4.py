@@ -7,7 +7,6 @@ from random import randint as rnd
 
 
 class Matrix:
-    list_matrix = []
     min_value = 1
     max_value = 20
 
@@ -17,12 +16,13 @@ class Matrix:
         self.list_matrix = [[rnd(self.min_value, self.max_value) for i in range(self.columns)] for i in range(self.rows)]
 
     def __str__(self):
-        txt = ''
-        for i in range(len(self.list_matrix)):
-            for j in range(len(self.list_matrix[i])):
-                txt += f'{self.list_matrix[i][j]} '
-            txt += '\n'
-        return txt
+        # txt = ''
+        # for i in range(len(self.list_matrix)):
+        #     for j in range(len(self.list_matrix[i])):
+        #         txt += f'{self.list_matrix[i][j]} '
+        #     txt += '\n'
+        # return txt
+        return '\n'.join(' '.join(map(str, line)) for line in self.list_matrix)
 
     def __eq__(self, other):
         return self.list_matrix == other.list_matrix
@@ -47,11 +47,19 @@ class Matrix:
         else:
             return 'Для операции умножения количество столбцов матрицы A должно совпадать с количеством строк матрицы B'
 
+    @classmethod
+    def from_two_stage_list(cls, two_stage_list: list[list]):
+        columns = len(two_stage_list[0])
+        rows = len(two_stage_list)
+        new = Matrix(columns, rows)
+        new.list_matrix = two_stage_list
+        return new
+
 
 my_matrix = Matrix(2, 2)
 print(my_matrix.list_matrix)
 print(my_matrix)
-my_matrix_2 = Matrix(2, 2)
+my_matrix_2 = Matrix.from_two_stage_list([[2, 2], [3, 4]])
 print()
 print(my_matrix_2)
 print(my_matrix == my_matrix_2)

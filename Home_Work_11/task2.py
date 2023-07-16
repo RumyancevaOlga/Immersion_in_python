@@ -19,8 +19,8 @@ class Archive:
         """Added number and my_string parameters. Append values in lists my_list_number and my_list_string."""
         self.number = number
         self.my_string = my_string
-        self.my_list_number.append(number)
-        self.my_list_string.append(my_string)
+        Archive.my_list_number.append(number)
+        Archive.my_list_string.append(my_string)
 
     def __str__(self):
         """Class representation for the print method."""
