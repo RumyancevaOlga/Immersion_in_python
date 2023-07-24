@@ -7,7 +7,7 @@ class FactorialException(MyException):
         self.stop = stop
 
     def __str__(self):
-        return f'Ошибка! Программа считает только факториал положительного числа!'
+        return f'Ошибка! Программа считает только факториал положительного числа! {self.stop} не положительное число'
 
 
 class TypeException(MyException):
